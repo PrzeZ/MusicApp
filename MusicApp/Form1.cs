@@ -12,9 +12,12 @@ namespace MusicApp
 {
     public partial class Form1 : Form
     {
+        private MusicSheet musicSheet = null;
+
         public Form1()
         {
             InitializeComponent();
+            musicSheet = new MusicSheet();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -22,14 +25,9 @@ namespace MusicApp
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
+            musicSheet.SetText(textBox1.Text);
         }
     }
 }

@@ -50,7 +50,6 @@ namespace MusicApp
             this.pictureBox1.Size = new System.Drawing.Size(687, 516);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // button1
             // 
@@ -86,6 +85,7 @@ namespace MusicApp
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(832, 516);
             this.textBox1.TabIndex = 5;
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // button3
             // 
@@ -93,6 +93,7 @@ namespace MusicApp
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 6;
+            this.button3.Tag = "";
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             // 
