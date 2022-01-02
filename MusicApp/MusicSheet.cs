@@ -10,24 +10,23 @@ namespace MusicApp
     {
         private List<Note> notes = new List<Note>();
 
-        public void SetText(string text)
+        public void AddNoteToSheet(Note note)
         {
-            notes = ConvertTextToNotes(text);
+            notes.Add(note);
         }
 
-        private List<Note> ConvertTextToNotes(string text)
+        private Note ConvertTextToNote(string text)
         {
-            List<Note> notes = new List<Note>();
             string[] parts = text.Split(new char[notes.Count]);
             foreach (var part in parts)
             {
                 if (part == "c3")
-                { 
-                    notes.Add(new Note("c3", 0, 0));
+                {
+                    return (new Note("c3", 0, 0));
                 }
+                else return null;
             }
-            
-            return notes;
+            return null;
         }
     }
 }
