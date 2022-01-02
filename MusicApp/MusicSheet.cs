@@ -9,13 +9,9 @@ namespace MusicApp
     internal class MusicSheet
     {
         private List<Note> notes = new List<Note>();
-        private string inputText;
 
         public void SetText(string text)
         {
-<<<<<<< Updated upstream
-            inputText = text;
-=======
             notes = ConvertTextToNotes(text);
         }
 
@@ -32,7 +28,6 @@ namespace MusicApp
             }
             
             return notes;
->>>>>>> Stashed changes
         }
     }
 }
