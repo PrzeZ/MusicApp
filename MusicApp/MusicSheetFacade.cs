@@ -8,5 +8,11 @@ namespace MusicApp
 {
     internal class MusicSheetFacade
     {
+        private MusicSheet musicSheet;
+
+        MusicSheetFacade(MusicSheet musicSheet)
+        {
+            this.musicSheet = musicSheet;
+        }
     }
 }

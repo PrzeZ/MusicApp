@@ -27,25 +27,11 @@ namespace MusicApp
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            CreateBitmapAtRuntime();
+            pictureBox1.Image = BitmapCreator.CreateBitmap();
         }
 
-        public void CreateBitmapAtRuntime()
-        {
-            PictureBox pictureBox = new PictureBox();
-            pictureBox1.Size = new Size(700, 500);
-            this.Controls.Add(pictureBox);
 
-            Bitmap bitmap = new Bitmap(700, 500);
-            Graphics graphics = Graphics.FromImage(bitmap);
 
-            int red = 0;
-            int white = 11;
-
-            graphics.FillRectangle(Brushes.Red, 0, red, 700, 500);
-            pictureBox1.Image = bitmap;
-        }
-        
         //void DrawImage(XGraphics gfx, int number)
         //{
 

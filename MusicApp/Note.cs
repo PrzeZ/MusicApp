@@ -9,6 +9,8 @@ namespace MusicApp
     internal class Note
     {
         private string name;
+        private int posX;
+        private int posY;
 
         public Note(string name)
         {
