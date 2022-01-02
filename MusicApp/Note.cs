@@ -12,9 +12,11 @@ namespace MusicApp
         private int posX;
         private int posY;
 
-        public Note(string name)
+        public Note(string name, int posX, int posY)
         {
             this.name = name;
+            this.posX = posX;  
+            this.posY = posY;
         }
     }
 }

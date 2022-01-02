@@ -23,7 +23,7 @@ namespace MusicApp
             {
                 if (part == "c3")
                 { 
-                    notes.Add(new Note("c3"));
+                    notes.Add(new Note("c3", 0, 0));
                 }
             }
             

@@ -18,10 +18,14 @@ namespace MusicApp
             Bitmap bitmap = new Bitmap(700, 500);
             Graphics graphics = Graphics.FromImage(bitmap);
 
-            int red = 0;
-            int white = 11;
 
-            graphics.FillRectangle(Brushes.Red, 0, red, 700, 500);
+            graphics.FillRectangle(Brushes.White, 0, 0, 700, 500);
+
+            for (int i = 0; i < 5; i++)
+            {
+                graphics.FillRectangle(Brushes.Black, 0, 20 + (i * 20), 700, 5);
+            }
+
             return bitmap;
             //pictureBox1.Image = bitmap;
         }

@@ -22,12 +22,12 @@ namespace MusicApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            pictureBox1.Image = BitmapFactory.CreateBitmap();
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            pictureBox1.Image = BitmapCreator.CreateBitmap();
+            pictureBox1.Image = BitmapFactory.CreateBitmap();
         }
 
 
