@@ -1,2 +1,3 @@
 # MusicApp
- 
+
+All Rights Reserved

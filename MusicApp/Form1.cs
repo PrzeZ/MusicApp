@@ -22,30 +22,16 @@ namespace MusicApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            pictureBox1.Image = BitmapFactory.CreateBitmap(musicSheet.Notes);
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            CreateBitmapAtRuntime();
+            var notes = musicSheet.ConvertTextToNote(textBox1.Text);
+            musicSheet.Notes = notes;
+            pictureBox1.Image = BitmapFactory.CreateBitmap(musicSheet.Notes);
         }
 
-        public void CreateBitmapAtRuntime()
-        {
-            PictureBox pictureBox = new PictureBox();
-            pictureBox1.Size = new Size(700, 500);
-            this.Controls.Add(pictureBox);
-
-            Bitmap bitmap = new Bitmap(700, 500);
-            Graphics graphics = Graphics.FromImage(bitmap);
-
-            int red = 0;
-            int white = 11;
-
-            graphics.FillRectangle(Brushes.Red, 0, red, 700, 500);
-            pictureBox1.Image = bitmap;
-        }
-        
         //void DrawImage(XGraphics gfx, int number)
         //{
 
