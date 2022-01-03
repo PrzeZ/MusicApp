@@ -10,7 +10,7 @@ namespace MusicApp
 {
     internal static class BitmapFactory
     {
-        public static Bitmap CreateBitmap()
+        public static Bitmap CreateBitmap(List<Note> notes)
         {
             PictureBox pictureBox = new PictureBox();
             pictureBox.Size = new Size(700, 500);
@@ -18,16 +18,19 @@ namespace MusicApp
             Bitmap bitmap = new Bitmap(700, 500);
             Graphics graphics = Graphics.FromImage(bitmap);
 
-
             graphics.FillRectangle(Brushes.White, 0, 0, 700, 500);
 
             for (int i = 0; i < 5; i++)
             {
-                graphics.FillRectangle(Brushes.Black, 0, 20 + (i * 20), 700, 5);
+                graphics.FillRectangle(Brushes.Black, 0, 20 + (i * 20), 700, 3);
+            }
+
+            foreach (var note in notes)
+            {
+                graphics.DrawEllipse(Pens.Black, new RectangleF(note.PosX, note.PosY, 20f, 15f));
             }
 
             return bitmap;
-            //pictureBox1.Image = bitmap;
         }
     }
 }
