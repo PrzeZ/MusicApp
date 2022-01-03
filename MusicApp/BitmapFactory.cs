@@ -27,7 +27,7 @@ namespace MusicApp
 
             foreach (var note in notes)
             {
-                graphics.DrawEllipse(Pens.Black, new RectangleF(note.PosX, note.PosY, 20f, 15f));
+                graphics.DrawEllipse(Pens.Black, new RectangleF(note.PosX, note.PosY, 25f, 20f));
             }
 
             return bitmap;

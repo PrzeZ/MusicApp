@@ -15,7 +15,7 @@ namespace MusicApp
         public Note(string name, int posX, int posY)
         {
             this.name = name;
-            this.PosX = posX;  
+            this.PosX = posX;
             this.PosY = posY;
         }
 
