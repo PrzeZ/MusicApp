@@ -10,7 +10,7 @@ namespace MusicApp
 {
     internal static class BitmapFactory
     {
-        public static Bitmap CreateBitmap(List<Note> notes)
+        public static Bitmap CreateBitmap(List<WholeNote> notes)
         {
             PictureBox pictureBox = new PictureBox();
             pictureBox.Size = new Size(700, 500);

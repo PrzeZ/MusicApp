@@ -8,13 +8,13 @@ namespace MusicApp
 {
     internal class MusicSheet
     {
-        private List<Note> notes = new List<Note>();
+        private List<WholeNote> notes = new List<WholeNote>();
 
-        internal List<Note> Notes { get => notes; set => notes = value; }
+        internal List<WholeNote> Notes { get => notes; set => notes = value; }
 
-        public List<Note> ConvertTextToNote(string text)
+        public List<WholeNote> ConvertTextToNote(string text)
         {
-            List<Note> notes = new List<Note>();
+            List<WholeNote> notes = new List<WholeNote>();
             string[] parts = text.Split(' ');
 
             const int offset = 30;
@@ -31,37 +31,37 @@ namespace MusicApp
                 }
                 else if (parts[i] == "c")
                 {
-                    notes.Add(new Note("d", totalOffset, 110));
+                    notes.Add(new WholeNote("d", totalOffset, 110));
                     totalOffset += offset;
                 }
                 else if (parts[i] == "d")
                 {
-                    notes.Add(new Note("d", totalOffset, 100));
+                    notes.Add(new WholeNote("d", totalOffset, 100));
                     totalOffset += offset;
                 }
                 else if (parts[i] == "e")
                 {
-                    notes.Add(new Note("e", totalOffset, 90));
+                    notes.Add(new WholeNote("e", totalOffset, 90));
                     totalOffset += offset;
                 }
                 else if (parts[i] == "f")
                 {
-                    notes.Add(new Note("f", totalOffset, 80));
+                    notes.Add(new WholeNote("f", totalOffset, 80));
                     totalOffset += offset;
                 }
                 else if (parts[i] == "g")
                 {
-                    notes.Add(new Note("g", totalOffset, 70));
+                    notes.Add(new WholeNote("g", totalOffset, 70));
                     totalOffset += offset;
                 }
                 else if (parts[i] == "a")
                 {
-                    notes.Add(new Note("a", totalOffset * 30, 60));
+                    notes.Add(new WholeNote("a", totalOffset * 30, 60));
                     totalOffset += offset;
                 }
                 else if (parts[i] == "h")
                 {
-                    notes.Add(new Note("h", i * 30, 50));
+                    notes.Add(new WholeNote("h", i * 30, 50));
                     totalOffset += offset;
                 }
                 else

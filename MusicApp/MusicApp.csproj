@@ -59,11 +59,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="INote.cs" />
     <Compile Include="MusicSheet.cs" />
     <Compile Include="MusicSheetsSystem.cs" />
-    <Compile Include="Note.cs" />
+    <Compile Include="WholeNote.cs" />
+    <Compile Include="NoteFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WholeNoteFactory.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

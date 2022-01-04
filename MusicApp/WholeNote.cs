@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace MusicApp
 {
-    internal class Note
+    internal class WholeNote : INote
     {
-        private string name;
         private int posX;
         private int posY;
 
-        public Note(string name, int posX, int posY)
+        public WholeNote()
         {
-            this.name = name;
+        }
+
+        public WholeNote(string name, int posX, int posY)
+        {
             this.PosX = posX;
             this.PosY = posY;
         }
