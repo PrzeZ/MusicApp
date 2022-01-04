@@ -1,3 +1,3 @@
 # MusicApp
 
-All Rights Reserved
+Notes engraving app with pdf conversion support.
