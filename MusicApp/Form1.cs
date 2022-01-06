@@ -31,15 +31,5 @@ namespace MusicApp
             musicSheet.Notes = notes;
             pictureBox1.Image = BitmapFactory.CreateBitmap(musicSheet.Notes);
         }
-
-        //void DrawImage(XGraphics gfx, int number)
-        //{
-
-        //    XImage image = XImage.FromFile(/*jpegSamplePath*/);
-
-        //    // Left position in point
-        //    double x = (250 - image.PixelWidth * 72 / image.HorizontalResolution) / 2;
-        //    gfx.DrawImage(image, x, 0);
-        //}
     }
 }
