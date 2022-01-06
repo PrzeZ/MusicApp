@@ -8,9 +8,9 @@ namespace MusicApp
 {
     internal class HalfNoteFactory : NoteFactory
     {
-        public override INote GetNote()
+        public override INote CreateNote(string pitch)
         {
-            INote note = new HalfNote();
+            INote note = new HalfNote(pitch);
             return note;
         }
     }

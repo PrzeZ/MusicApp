@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace MusicApp
 {
-    internal class HalfNote
+    internal class HalfNote : INote
     {
+        private string pitch;
+
+        public HalfNote(string pitch)
+        {
+            this.pitch = pitch;
+        }
+
+        public string Pitch => pitch;
     }
 }

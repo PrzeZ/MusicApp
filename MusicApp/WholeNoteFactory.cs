@@ -8,9 +8,9 @@ namespace MusicApp
 {
     internal class WholeNoteFactory : NoteFactory
     {
-        public override INote GetNote()
+        public override INote CreateNote(string pitch)
         {
-            INote note = new WholeNote();
+            INote note = new WholeNote(pitch);
             return note;
         }
     }
