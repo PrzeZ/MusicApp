@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace MusicApp
 {
-    internal abstract class NoteFactory
+    internal class HalfNote
     {
-        public abstract INote GetNote();
     }
 }
