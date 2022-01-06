@@ -31,5 +31,11 @@ namespace MusicApp
             musicSheet.Notes = notes;
             pictureBox1.Image = BitmapFactory.CreateBitmap(musicSheet.Notes);
         }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            PDFConverter converter = new PDFConverter();
+            await converter.DrawImage(null, 1);
+        }
     }
 }
