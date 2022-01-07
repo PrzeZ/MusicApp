@@ -35,7 +35,7 @@ namespace MusicApp
         private async void button3_Click(object sender, EventArgs e)
         {
             PDFConverter converter = new PDFConverter();
-            await converter.DrawImage(null, 1);
+            await converter.ConvertToPDF((Bitmap)pictureBox1.Image);
         }
     }
 }

@@ -2,6 +2,7 @@
 using PdfSharp.Pdf;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,19 +12,20 @@ namespace MusicApp
 {
     internal class PDFConverter
     {
-        internal async Task DrawImage(XGraphics gfx, int number)
+        internal async Task ConvertToPDF(Bitmap bitmap)
         {
             try
             {
                 PdfDocument pdf = new PdfDocument();
-                pdf.Pages.Add(new PdfPage());
-                XGraphics xgr = XGraphics.FromPdfPage(pdf.Pages[0]);
-                XImage image = XImage.FromFile(null /*jpegSamplePath*/);
+                bitmap.Save("tmp.bmp");
 
-                // Left position in point
-                double x = (250 - image.PixelWidth * 72 / image.HorizontalResolution) / 2;
-                gfx.DrawImage(image, x, 0);
-                pdf.Save(("~/Images/test.pdf"));
+                PdfPage page = pdf.AddPage();
+                XGraphics gfx = XGraphics.FromPdfPage(page);
+
+                XImage image = XImage.FromFile("tmp.bmp");
+                gfx.DrawImage(image, 0, 0, (int)page.Width, (int)page.Height);
+
+                pdf.Save(("test.pdf"));
                 pdf.Close();
             }
             catch (Exception e)
@@ -34,5 +36,7 @@ namespace MusicApp
 
             await Task.Delay(1000);
         }
+
+
     }
 }

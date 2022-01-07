@@ -72,9 +72,9 @@ namespace MusicApp
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(338, 535);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
+            this.label1.Text = "page";
             // 
             // textBox1
             // 
