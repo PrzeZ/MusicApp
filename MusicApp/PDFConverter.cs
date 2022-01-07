@@ -23,7 +23,7 @@ namespace MusicApp
                 XGraphics gfx = XGraphics.FromPdfPage(page);
 
                 XImage image = XImage.FromFile("tmp.bmp");
-                gfx.DrawImage(image, 0, 0, (int)page.Width, (int)page.Height);
+                gfx.DrawImage(image, 0, 0, (int)bitmap.Width, (int)bitmap.Height);
 
                 pdf.Save(("test.pdf"));
                 pdf.Close();
