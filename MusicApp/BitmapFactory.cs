@@ -29,7 +29,7 @@ namespace MusicApp
 
             for (int i = 0; i < notes.Count; i++)
             {
-                var NoteEnumerator = (Enums.Notes)Enum.Parse(typeof(Enums.Notes), notes[i].Pitch);
+                var NoteEnumerator = (Enums.Notes)Enum.Parse(typeof(Enums.Notes), notes[i].Pitch); //may get replaced by a better solution
                 graphics.DrawEllipse(Pens.Black, new RectangleF(i * offset, (float)NoteEnumerator, 25f, 20f));
             }
 
