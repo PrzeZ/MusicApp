@@ -30,6 +30,7 @@ namespace MusicApp
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -88,7 +89,7 @@ namespace MusicApp
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1751, 904);
+            this.button3.Location = new System.Drawing.Point(1751, 961);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(125, 53);
             this.button3.TabIndex = 6;
@@ -108,6 +109,7 @@ namespace MusicApp
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Editor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
