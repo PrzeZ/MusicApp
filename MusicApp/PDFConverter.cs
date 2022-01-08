@@ -12,7 +12,7 @@ namespace MusicApp
 {
     internal class PDFConverter
     {
-        internal async Task ConvertToPDF(Bitmap bitmap)
+        internal async Task ConvertToPDFAsync(Bitmap bitmap)
         {
             try
             {

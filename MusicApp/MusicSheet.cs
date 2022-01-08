@@ -14,11 +14,11 @@ namespace MusicApp
 
         public List<INote> ConvertTextToNote(string text)
         {
-            char[] separators = new char[] {(char)32, (char)13 };
+            string[] separators = new string[] {" ", "\n" };
             WholeNoteFactory wholeNoteFactory = new WholeNoteFactory();
 
             List<INote> notes = new List<INote>();
-            string[] parts = text.Split(separators);
+            string[] parts = text.Split(separators, StringSplitOptions.None);
 
             for (int i = 0; i < parts.Length; i++)
             {
