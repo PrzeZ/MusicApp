@@ -15,16 +15,16 @@ namespace MusicApp
             const int offset = 30;
 
             PictureBox pictureBox = new PictureBox();
-            pictureBox.Size = new Size(700, 500);
+            pictureBox.Size = new Size(1000, 800);
 
-            Bitmap bitmap = new Bitmap(700, 500);
+            Bitmap bitmap = new Bitmap(1000, 800);
             Graphics graphics = Graphics.FromImage(bitmap);
 
-            graphics.FillRectangle(Brushes.White, 0, 0, 700, 500);
+            graphics.FillRectangle(Brushes.White, 0, 0, 1000, 800);
 
             for (int i = 0; i < 5; i++)
             {
-                graphics.FillRectangle(Brushes.Black, 0, 20 + (i * 20), 700, 3);
+                graphics.FillRectangle(Brushes.Black, 0, 20 + (i * 20), 1000, 3);
             }
 
             for (int i = 0; i < notes.Count; i++)
