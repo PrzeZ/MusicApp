@@ -11,6 +11,7 @@ namespace MusicApp
     {
         private IBitmapFactory bitmapFactory = null;
         private List<IMusicSheet> musicSheets = new List<IMusicSheet>();
+        private IMusicSheet selectedMusicSheet;
 
         public MusicSheetsSystemFacade(IBitmapFactory bitmapFactory)
         {
@@ -22,13 +23,14 @@ namespace MusicApp
             if (musicSheets.Count == 0)
             {
                 AddMusicSheet();
+                selectedMusicSheet = musicSheets[0];
             }
             return bitmapFactory.CreateBitmap(musicSheets[0].Notes); //TODO
         }
 
         public Bitmap UpdateMusicSheet(string text)
         {
-            var notes = musicSheets[0].ConvertTextToNote(text);
+            var notes = selectedMusicSheet.ConvertTextToNote(text);
             return bitmapFactory.CreateBitmap(notes);
         }
 
