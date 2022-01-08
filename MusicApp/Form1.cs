@@ -12,7 +12,7 @@ namespace MusicApp
 {
     public partial class Form1 : Form
     {
-        static IBitmapFactory bitmapFactory = new BitmapFactory();
+        static IBitmapGenerator bitmapFactory = new BitmapGenerator();
         IMusicSheetsSystemFacade musicSheetsSystemFacade = new MusicSheetsSystemFacade(bitmapFactory);
 
         public Form1()

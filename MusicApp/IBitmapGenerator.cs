@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace MusicApp
 {
-    internal interface IBitmapFactory
+    internal interface IBitmapGenerator
     {
         Bitmap CreateBitmap(List<INote> notes);
+        Bitmap Initialize();
     }
 }

@@ -9,34 +9,32 @@ namespace MusicApp
 {
     internal class MusicSheetsSystemFacade : IMusicSheetsSystemFacade
     {
-        private IBitmapFactory bitmapFactory = null;
+        private IBitmapGenerator bitmapGenerator = null;
         private List<IMusicSheet> musicSheets = new List<IMusicSheet>();
         private IMusicSheet selectedMusicSheet;
 
-        public MusicSheetsSystemFacade(IBitmapFactory bitmapFactory)
+        public MusicSheetsSystemFacade(IBitmapGenerator bitmapFactory)
         {
-            this.bitmapFactory = bitmapFactory;
+            this.bitmapGenerator = bitmapFactory;
         }
 
         public Bitmap InitializeMusicSheet()
         {
-            if (musicSheets.Count == 0)
-            {
-                AddMusicSheet();
-                selectedMusicSheet = musicSheets[0];
-            }
-            return bitmapFactory.CreateBitmap(musicSheets[0].Notes); //TODO
+
+            AddMusicSheet();
+            selectedMusicSheet = musicSheets[0];
+            return bitmapGenerator.Initialize();
         }
 
         public Bitmap UpdateMusicSheet(string text)
         {
             var notes = selectedMusicSheet.ConvertTextToNote(text);
-            return bitmapFactory.CreateBitmap(notes);
+            return bitmapGenerator.CreateBitmap(notes);
         }
 
         public void AddMusicSheet()
         {
-            musicSheets.Add(new MusicSheet());   
+            musicSheets.Add(new MusicSheet());           
         }
 
         public void RemoveMusicSheet()
