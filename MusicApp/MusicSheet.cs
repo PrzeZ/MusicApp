@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MusicApp
 {
-    internal class MusicSheet
+    internal class MusicSheet : IMusicSheet
     {
         private List<INote> notes = new List<INote>();
 
-        internal List<INote> Notes { get => notes; set => notes = value; }
+        public List<INote> Notes => notes;
 
         public List<INote> ConvertTextToNote(string text)
         {

@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace MusicApp
 {
-    internal static class BitmapFactory
+    internal class BitmapFactory : IBitmapFactory
     {
-        public static Bitmap CreateBitmap(List<INote> notes)
+        public Bitmap CreateBitmap(List<INote> notes)
         {
             const int offset = 30;
 

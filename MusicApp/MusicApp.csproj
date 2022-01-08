@@ -77,9 +77,12 @@
     </Compile>
     <Compile Include="HalfNote.cs" />
     <Compile Include="HalfNoteFactory.cs" />
+    <Compile Include="IBitmapFactory.cs" />
+    <Compile Include="IMusicSheet.cs" />
+    <Compile Include="IMusicSheetsSystemFacade.cs" />
     <Compile Include="INote.cs" />
     <Compile Include="MusicSheet.cs" />
-    <Compile Include="MusicSheetsSystem.cs" />
+    <Compile Include="MusicSheetsSystemFacade.cs" />
     <Compile Include="PDFConverter.cs" />
     <Compile Include="WholeNote.cs" />
     <Compile Include="NoteFactory.cs" />
