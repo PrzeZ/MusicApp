@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MusicApp
 {
-    internal class MusicSheetsSystem
+    internal interface IMusicSheet
     {
-        private List<MusicSheet> musicSheets = new List<MusicSheet>();
-        //TODO
+        List<INote> Notes { get; }
+        List<INote> ConvertTextToNote(string text);
     }
 }
