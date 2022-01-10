@@ -62,6 +62,7 @@ namespace MusicApp
                 }
                 lastPart = parts[i];
             }
+            this.notes = notes;
             return notes;
         }
     }

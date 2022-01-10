@@ -27,6 +27,16 @@ namespace MusicApp
 
                 pdf.Save(("test.pdf"));
                 pdf.Close();
+
+                var p = new System.Diagnostics.Process();
+                p.StartInfo = new System.Diagnostics.ProcessStartInfo("test.pdf")
+                {
+                    UseShellExecute = true
+                };
+                p.Start();
+
+                MessageBox.Show("Save success", "Saved to pdf", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             catch (Exception e)
             {

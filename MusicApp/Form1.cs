@@ -12,7 +12,7 @@ namespace MusicApp
 {
     public partial class Form1 : Form
     {
-        static IBitmapFactory bitmapFactory = new BitmapFactory();
+        static IBitmapGenerator bitmapFactory = new BitmapGenerator();
         IMusicSheetsSystemFacade musicSheetsSystemFacade = new MusicSheetsSystemFacade(bitmapFactory);
 
         public Form1()
@@ -34,6 +34,16 @@ namespace MusicApp
         {
             PDFConverter converter = new PDFConverter();
             await converter.ConvertToPDFAsync((Bitmap)pictureBox1.Image);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //next page
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //previous page
         }
     }
 }
