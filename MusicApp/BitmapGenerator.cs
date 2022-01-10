@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace MusicApp
     internal class BitmapGenerator : IBitmapGenerator
     {
         Bitmap background = null;
-        Image key = Image.FromFile("D:/projekty/.net/MusicApp/MusicApp/images/key.png");
+
 
         public Bitmap CreateBitmap(List<INote> notes)
         {
@@ -48,6 +49,9 @@ namespace MusicApp
             Bitmap bitmap = new Bitmap(1000, 800);
             Graphics graphics = Graphics.FromImage(bitmap);
             graphics.FillRectangle(Brushes.White, 0, 0, 1000, 800);
+            string path = "C:/Users/przem/Desktop/Projekty/.Net/MusicApp/MusicApp/images/key.png";
+            string fullPath = Path.GetFullPath(path);
+            Image key = Image.FromFile(fullPath);
 
             int offset = 0;
             for (int j = 0; j < 4; j++)
