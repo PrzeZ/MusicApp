@@ -11,7 +11,7 @@ namespace MusicApp
     {
         private IBitmapGenerator bitmapGenerator = null;
         private List<IMusicSheet> musicSheets = new List<IMusicSheet>();
-        private IMusicSheet selectedMusicSheet;
+        private int selectedMusicSheetIndex = 0;
 
         public MusicSheetsSystemFacade(IBitmapGenerator bitmapFactory)
         {
@@ -20,15 +20,13 @@ namespace MusicApp
 
         public Bitmap InitializeMusicSheet()
         {
-
             AddMusicSheet();
-            selectedMusicSheet = musicSheets[0];
             return bitmapGenerator.Initialize();
         }
 
         public Bitmap UpdateMusicSheet(string text)
         {
-            var notes = selectedMusicSheet.ConvertTextToNote(text);
+            var notes = musicSheets[selectedMusicSheetIndex].ConvertTextToNote(text);
             return bitmapGenerator.CreateBitmap(notes);
         }
 
@@ -41,6 +39,18 @@ namespace MusicApp
         {
             if (musicSheets.Count < 1) { return; }
             musicSheets.Remove(musicSheets[musicSheets.Count - 1]);
+        }
+
+        public void SelectNextMusicSheet()
+        {
+            if (selectedMusicSheetIndex == musicSheets.Count - 1) { return; }
+            selectedMusicSheetIndex++;
+        }
+
+        public void SelectPreviousMusicSheet()
+        {
+            if (selectedMusicSheetIndex == 0) { return; }
+            selectedMusicSheetIndex--;
         }
     }
 }

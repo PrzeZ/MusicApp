@@ -13,7 +13,6 @@ namespace MusicApp
     {
         Bitmap background = null;
 
-
         public Bitmap CreateBitmap(List<INote> notes)
         {
             int xOffset = 100;

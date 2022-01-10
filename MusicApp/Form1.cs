@@ -36,14 +36,14 @@ namespace MusicApp
             await converter.ConvertToPDFAsync((Bitmap)pictureBox1.Image);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //next
         {
-            //next page
+            musicSheetsSystemFacade.SelectNextMusicSheet();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //back
         {
-            //previous page
+            musicSheetsSystemFacade.SelectPreviousMusicSheet();
         }
     }
 }

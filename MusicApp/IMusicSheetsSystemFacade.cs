@@ -11,5 +11,8 @@ namespace MusicApp
     {
         Bitmap InitializeMusicSheet();
         Bitmap UpdateMusicSheet(string text);
+        void SelectNextMusicSheet();
+        void SelectPreviousMusicSheet();
+
     }
 }
