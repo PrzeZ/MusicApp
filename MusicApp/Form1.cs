@@ -22,7 +22,8 @@ namespace MusicApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            pictureBox1.Image = musicSheetsSystemFacade.InitializeMusicSheet();
+            musicSheetsSystemFacade.InitializeMusicSheets();
+            pictureBox1.Image = musicSheetsSystemFacade.Background;
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)

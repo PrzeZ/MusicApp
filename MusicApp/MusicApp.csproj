@@ -83,6 +83,7 @@
     <Compile Include="INote.cs" />
     <Compile Include="MusicSheet.cs" />
     <Compile Include="MusicSheetsSystemFacade.cs" />
+    <Compile Include="NotesDictionary.cs" />
     <Compile Include="PDFConverter.cs" />
     <Compile Include="WholeNote.cs" />
     <Compile Include="NoteFactory.cs" />

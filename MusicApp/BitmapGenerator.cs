@@ -11,9 +11,7 @@ namespace MusicApp
 {
     internal class BitmapGenerator : IBitmapGenerator
     {
-        Bitmap background = null;
-
-        public Bitmap CreateBitmap(List<INote> notes)
+        public Bitmap CreateBitmap(IMusicSheet musicSheet, Bitmap background)
         {
             const int xOffsetIncrement = 75;
             int xOffset = 100;
@@ -27,18 +25,22 @@ namespace MusicApp
 
             graphics.DrawImage(background, 0, 0, 1000, 800);
 
-            for (int i = 0; i < notes.Count; i++)
+            for (int i = 0; i < musicSheet.Notes.Count; i++)
             {
-                var NoteEnumerator = (Enums.Notes)Enum.Parse(typeof(Enums.Notes), notes[i].Pitch); //TODO reactor with dictionary
-                graphics.DrawEllipse(Pens.Black, new RectangleF(xOffset, (float)NoteEnumerator + yOffset, 25f, 20f));
+                var noteX = 0;
+                if (NotesDictionary.dictionary.TryGetValue(musicSheet.Notes[i].Pitch, out noteX))
+                {
+                    // Key was in dictionary; "value" contains corresponding value
+                }
+                else
+                {
+                    // Key wasn't in dictionary; "value" is now 0
+                }
+                graphics.DrawEllipse(Pens.Black, new RectangleF(xOffset, (float)noteX + yOffset, 25f, 20f));
                 if (i == 12 || i == 24 || i == 36)
                 {
                     xOffset = 100;
                     yOffset += 200;
-                }
-                else if (i == 48)
-                {
-                    //TODO ADD NEW SHEET
                 }
                 else
                 {
@@ -66,9 +68,7 @@ namespace MusicApp
                     graphics.FillRectangle(Brushes.Black, 0, 20 + (i * 20) + offset, 1000, 3);
                 }
                 offset += 200;
-            }
-
-            background = bitmap;
+            }           
             return bitmap;
         }
     }

@@ -10,13 +10,13 @@ namespace MusicApp
     {
         internal enum Notes : int
         {
-            C = 110,
-            D = 100,
-            E = 90,
-            F = 80,
-            G = 70,
-            A = 60,
-            H = 50
+            c = 110,
+            d = 100,
+            e = 90,
+            f = 80,
+            g = 70,
+            a = 60,
+            h = 50
         }
     }
 }
