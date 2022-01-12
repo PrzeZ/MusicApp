@@ -15,6 +15,7 @@ namespace MusicApp
 
         public Bitmap CreateBitmap(List<INote> notes)
         {
+            const int xOffsetIncrement = 75;
             int xOffset = 100;
             int yOffset = 0;
 
@@ -28,16 +29,20 @@ namespace MusicApp
 
             for (int i = 0; i < notes.Count; i++)
             {
-                var NoteEnumerator = (Enums.Notes)Enum.Parse(typeof(Enums.Notes), notes[i].Pitch); //may get replaced by a better solution
+                var NoteEnumerator = (Enums.Notes)Enum.Parse(typeof(Enums.Notes), notes[i].Pitch); //TODO reactor with dictionary
                 graphics.DrawEllipse(Pens.Black, new RectangleF(xOffset, (float)NoteEnumerator + yOffset, 25f, 20f));
-                if (i == 30 || i == 60 || i == 90)
+                if (i == 12 || i == 24 || i == 36)
                 {
                     xOffset = 100;
                     yOffset += 200;
                 }
+                else if (i == 48)
+                {
+                    //TODO ADD NEW SHEET
+                }
                 else
                 {
-                    xOffset += 30;
+                    xOffset += xOffsetIncrement;
                 }
             }
             return bitmap;
@@ -48,14 +53,14 @@ namespace MusicApp
             Bitmap bitmap = new Bitmap(1000, 800);
             Graphics graphics = Graphics.FromImage(bitmap);
             graphics.FillRectangle(Brushes.White, 0, 0, 1000, 800);
-            string path = "C:/Users/przem/Desktop/Projekty/.Net/MusicApp/MusicApp/images/key.png";
+            string path = "C:/Users/przem/Desktop/Projekty/.Net/MusicApp/MusicApp/images/key.png"; //TODO change to relative path
             string fullPath = Path.GetFullPath(path);
             Image key = Image.FromFile(fullPath);
 
             int offset = 0;
             for (int j = 0; j < 4; j++)
             {
-                graphics.DrawImage(key, 0, 10 + offset, 100, 100); //To refactor
+                graphics.DrawImage(key, 0, 10 + offset, 100, 100);
                 for (int i = 0; i < 5; i++)
                 {
                     graphics.FillRectangle(Brushes.Black, 0, 20 + (i * 20) + offset, 1000, 3);
