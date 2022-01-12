@@ -78,13 +78,10 @@ namespace MusicApp
             {
                 string lastPart = null;
 
-                var noteX = 0;
-                if (NotesDictionary.dictionary.TryGetValue(parts[i], out noteX))
+                var value = 0;
+                if (!NotesDictionary.dictionary.TryGetValue(parts[i], out value))
                 {
-                    // Key was in dictionary; "value" contains corresponding value
-                }
-                else
-                {
+                    // value not found
                     continue;
                 }
 
@@ -95,7 +92,7 @@ namespace MusicApp
                 else
                 {
                     string notePart = parts[i];
-                    musicSheets[sheetIndex].AddNote(wholeNoteFactory.CreateNote(notePart));
+                    musicSheets[sheetIndex].AddNote(wholeNoteFactory.CreateNote(value));
                 }
                 lastPart = parts[i];
             }

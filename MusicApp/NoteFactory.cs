@@ -8,6 +8,6 @@ namespace MusicApp
 {
     internal abstract class NoteFactory //abstract class for note factories
     {
-        public abstract INote CreateNote(string pitch);
+        public abstract INote CreateNote(float pitch);
     }
 }

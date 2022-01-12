@@ -27,16 +27,7 @@ namespace MusicApp
 
             for (int i = 0; i < musicSheet.Notes.Count; i++)
             {
-                var noteX = 0;
-                if (NotesDictionary.dictionary.TryGetValue(musicSheet.Notes[i].Pitch, out noteX))
-                {
-                    // Key was in dictionary; "value" contains corresponding value
-                }
-                else
-                {
-                    // Key wasn't in dictionary; "value" is now 0
-                }
-                graphics.DrawEllipse(Pens.Black, new RectangleF(xOffset, (float)noteX + yOffset, 25f, 20f));
+                graphics.DrawEllipse(Pens.Black, new RectangleF(xOffset, (float)musicSheet.Notes[i].Pitch + yOffset, 25f, 20f));
                 if (i == 12 || i == 24 || i == 36)
                 {
                     xOffset = 100;
