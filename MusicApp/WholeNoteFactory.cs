@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MusicApp
 {
-    internal class WholeNoteFactory : NoteFactory
+    internal class WholeNoteFactory : INoteFactory
     {
-        public override INote CreateNote(float pitch)
+        public INote CreateNote(float pitch)
         {
             INote note = new WholeNote(pitch);
             return note;
