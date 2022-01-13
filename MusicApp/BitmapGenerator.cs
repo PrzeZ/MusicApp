@@ -46,9 +46,8 @@ namespace MusicApp
             Bitmap bitmap = new Bitmap(1000, 800);
             Graphics graphics = Graphics.FromImage(bitmap);
             graphics.FillRectangle(Brushes.White, 0, 0, 1000, 800);
-            string path = "C:/Users/przem/Desktop/Projekty/.Net/MusicApp/MusicApp/images/key.png"; //TODO change to relative path
-            string fullPath = Path.GetFullPath(path);
-            Image key = Image.FromFile(fullPath);
+
+            Image key = Properties.Resources.key;
 
             int offset = 0;
             for (int j = 0; j < 4; j++)
