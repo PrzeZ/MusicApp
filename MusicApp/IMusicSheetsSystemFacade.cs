@@ -9,10 +9,12 @@ namespace MusicApp
 {
     internal interface IMusicSheetsSystemFacade
     {
-        Bitmap InitializeMusicSheet();
+        List<INote> ConvertTextToNote(string text);
+        void InitializeMusicSheets();
+        void AddMusicSheet();
         Bitmap UpdateMusicSheet(string text);
         void SelectNextMusicSheet();
         void SelectPreviousMusicSheet();
-
+        Bitmap Background { get; }
     }
 }

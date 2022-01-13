@@ -8,13 +8,13 @@ namespace MusicApp
 {
     internal class WholeNote : INote
     {
-        private string pitch;
+        private float pitch;
 
-        public WholeNote(string pitch)
+        public WholeNote(float pitch)
         {
             this.pitch = pitch;
         }
 
-        public string Pitch => pitch;
+        public float Pitch => pitch;
     }
 }

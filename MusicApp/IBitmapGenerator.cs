@@ -9,7 +9,7 @@ namespace MusicApp
 {
     internal interface IBitmapGenerator
     {
-        Bitmap CreateBitmap(List<INote> notes);
+        Bitmap CreateBitmap(IMusicSheet musicSheet, Bitmap background);
         Bitmap Initialize();
     }
 }

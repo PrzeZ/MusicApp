@@ -11,9 +11,7 @@ namespace MusicApp
 {
     internal class BitmapGenerator : IBitmapGenerator
     {
-        Bitmap background = null;
-
-        public Bitmap CreateBitmap(List<INote> notes)
+        public Bitmap CreateBitmap(IMusicSheet musicSheet, Bitmap background)
         {
             const int xOffsetIncrement = 75;
             int xOffset = 100;
@@ -27,18 +25,13 @@ namespace MusicApp
 
             graphics.DrawImage(background, 0, 0, 1000, 800);
 
-            for (int i = 0; i < notes.Count; i++)
+            for (int i = 0; i < musicSheet.Notes.Count; i++)
             {
-                var NoteEnumerator = (Enums.Notes)Enum.Parse(typeof(Enums.Notes), notes[i].Pitch); //TODO reactor with dictionary
-                graphics.DrawEllipse(Pens.Black, new RectangleF(xOffset, (float)NoteEnumerator + yOffset, 25f, 20f));
+                graphics.DrawEllipse(Pens.Black, new RectangleF(xOffset, (float)musicSheet.Notes[i].Pitch + yOffset, 25f, 20f));
                 if (i == 12 || i == 24 || i == 36)
                 {
                     xOffset = 100;
                     yOffset += 200;
-                }
-                else if (i == 48)
-                {
-                    //TODO ADD NEW SHEET
                 }
                 else
                 {
@@ -53,9 +46,8 @@ namespace MusicApp
             Bitmap bitmap = new Bitmap(1000, 800);
             Graphics graphics = Graphics.FromImage(bitmap);
             graphics.FillRectangle(Brushes.White, 0, 0, 1000, 800);
-            string path = "C:/Users/przem/Desktop/Projekty/.Net/MusicApp/MusicApp/images/key.png"; //TODO change to relative path
-            string fullPath = Path.GetFullPath(path);
-            Image key = Image.FromFile(fullPath);
+
+            Image key = Properties.Resources.key;
 
             int offset = 0;
             for (int j = 0; j < 4; j++)
@@ -66,9 +58,7 @@ namespace MusicApp
                     graphics.FillRectangle(Brushes.Black, 0, 20 + (i * 20) + offset, 1000, 3);
                 }
                 offset += 200;
-            }
-
-            background = bitmap;
+            }           
             return bitmap;
         }
     }

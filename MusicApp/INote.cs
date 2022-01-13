@@ -8,6 +8,6 @@ namespace MusicApp
 {
     internal interface INote
     {
-        string Pitch { get; }
+        float Pitch { get; }
     }
 }

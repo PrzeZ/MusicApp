@@ -9,6 +9,8 @@ namespace MusicApp
     internal interface IMusicSheet
     {
         List<INote> Notes { get; }
-        List<INote> ConvertTextToNote(string text);
+        bool CheckIfFull();
+        void AddNote(INote note);
+        void ClearNotes();
     }
 }
