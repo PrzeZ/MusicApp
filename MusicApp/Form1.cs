@@ -46,5 +46,16 @@ namespace MusicApp
         {
             musicSheetsSystemFacade.SelectPreviousMusicSheet();
         }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) //override for shortcut saving
+        {
+            if (keyData == (Keys.Control | Keys.S))
+            {
+                MessageBox.Show("Saved");
+                //TODO Save logic
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
     }
 }
