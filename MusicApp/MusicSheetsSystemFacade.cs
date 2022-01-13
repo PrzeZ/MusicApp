@@ -67,7 +67,7 @@ namespace MusicApp
         public List<INote> ConvertTextToNote(string text)
         {       
             string[] separators = new string[] { " ", "\n" };
-            NoteFactory wholeNoteFactory = new WholeNoteFactory(); //notes in specified sheet
+            INoteFactory wholeNoteFactory = new WholeNoteFactory(); //notes in specified sheet
 
             List<INote> notes = new List<INote>();
             string[] parts = text.Split(separators, StringSplitOptions.None);

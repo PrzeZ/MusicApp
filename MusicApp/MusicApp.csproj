@@ -86,7 +86,7 @@
     <Compile Include="NotesDictionary.cs" />
     <Compile Include="PDFConverter.cs" />
     <Compile Include="WholeNote.cs" />
-    <Compile Include="NoteFactory.cs" />
+    <Compile Include="INoteFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WholeNoteFactory.cs" />
