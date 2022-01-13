@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MusicApp
 {
-    internal class MusicSheetsSystemFacade : IMusicSheetsSystemFacade
+    internal class MusicSheetsSystemFacade : IMusicSheetsSystemFacade //FASADA
     {
         private IBitmapGenerator bitmapGenerator = null;
         private List<IMusicSheet> musicSheets = new List<IMusicSheet>();
@@ -67,19 +67,20 @@ namespace MusicApp
         public List<INote> ConvertTextToNote(string text)
         {       
             string[] separators = new string[] { " ", "\n" };
-            INoteFactory wholeNoteFactory = new WholeNoteFactory(); //notes in specified sheet
+            INoteFactory wholeNoteFactory = new WholeNoteFactory();
 
             List<INote> notes = new List<INote>();
             string[] parts = text.Split(separators, StringSplitOptions.None);
             int sheetIndex = 0;
 
+            var notesDictionary = NotesDictionary.GetInstance();
             musicSheets[sheetIndex].ClearNotes(); //SLOW!
             for (int i = (sheetIndex * 48); i < parts.Length; i++)
             {
                 string lastPart = null;
 
                 var value = 0;
-                if (!NotesDictionary.dictionary.TryGetValue(parts[i], out value))
+                if (!notesDictionary.dictionary.TryGetValue(parts[i], out value))
                 {
                     // value not found
                     continue;

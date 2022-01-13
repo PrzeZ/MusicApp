@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MusicApp
 {
-    internal interface INoteFactory //abstract class for note factories
+    internal interface INoteFactory //FABRYKA ABSTRAKCYJNA
     {
         INote CreateNote(float pitch);
     }

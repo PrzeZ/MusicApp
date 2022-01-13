@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MusicApp
 {
-    internal class WholeNoteFactory : INoteFactory
+    internal class WholeNoteFactory : INoteFactory //FABRYKA
     {
         public INote CreateNote(float pitch)
         {
