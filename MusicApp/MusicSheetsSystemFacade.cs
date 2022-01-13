@@ -36,7 +36,7 @@ namespace MusicApp
 
         public void AddMusicSheet()
         {
-            musicSheets.Add(new MusicSheet());           
+            musicSheets.Add(new MusicSheet());
         }
 
         public void RemoveMusicSheet()
