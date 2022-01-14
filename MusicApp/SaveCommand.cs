@@ -8,15 +8,18 @@ namespace MusicApp
 
         private Bitmap bitmap;
 
+        private OpenFileDecorator openFileDecorator;
+
         public SaveCommand(PDFConverter converter, Bitmap bitmap)
         {
             this.converter = converter;
             this.bitmap = bitmap;
+            openFileDecorator = new OpenFileDecorator(converter);
         }
 
         public async void Execute()
         {
-            await converter.ConvertToPDFAsync(bitmap);
+            await openFileDecorator.SaveAndOpen(bitmap, "musicSheets.pdf");
         }
     }
 }

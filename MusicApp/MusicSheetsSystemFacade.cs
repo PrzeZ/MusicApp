@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading.Tasks;
 
 namespace MusicApp
 {
@@ -69,33 +70,26 @@ namespace MusicApp
             INoteFactory wholeNoteFactory = new WholeNoteFactory();
 
             List<INote> notes = new List<INote>();
-            string[] parts = text.Split(separators, StringSplitOptions.None);
+            string[] parts = text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
             int sheetIndex = 0;
 
             var notesDictionary = NotesDictionary.GetInstance();
-            musicSheets[sheetIndex].ClearNotes(); //SLOW!
-            for (int i = (sheetIndex * 48); i < parts.Length; i++)
-            {
-                string lastPart = null;
+            musicSheets[sheetIndex].ClearNotes();
 
+            Parallel.For(sheetIndex * 48, parts.Length, (i) =>
+            {
                 var value = 0;
                 if (!notesDictionary.dictionary.TryGetValue(parts[i], out value))
                 {
                     // value not found
-                    continue;
-                }
-
-                if (lastPart == " " && parts[i] == " ")
-                {
-                    continue;
                 }
                 else
                 {
                     string notePart = parts[i];
                     musicSheets[sheetIndex].AddNote(wholeNoteFactory.CreateNote(value));
                 }
-                lastPart = parts[i];
-            }
+            });
+
             return notes;
         }
 
