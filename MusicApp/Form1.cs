@@ -9,6 +9,7 @@ namespace MusicApp
         IBitmapGenerator bitmapGenerator;
         IMusicSheetsSystemFacade musicSheetsSystemFacade;
         PDFConverter pdfConverter;
+        Caretaker caretaker;
 
         public Form1()
         {
@@ -17,6 +18,7 @@ namespace MusicApp
             bitmapGenerator = new BitmapGenerator();
             musicSheetsSystemFacade = new MusicSheetsSystemFacade(bitmapGenerator);
             pdfConverter = new PDFConverter();
+            caretaker = new Caretaker(textBox1);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -28,6 +30,7 @@ namespace MusicApp
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             pictureBox1.Image = musicSheetsSystemFacade.UpdateMusicSheet(textBox1.Text);
+            caretaker.Backup();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -48,7 +51,7 @@ namespace MusicApp
             musicSheetsSystemFacade.SelectPreviousMusicSheet();
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) //override for shortcut saving
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) //override for shortcuts
         {
             if (keyData == (Keys.Control | Keys.S))
             {
@@ -58,6 +61,12 @@ namespace MusicApp
 
                 return true;
             }
+            else if (keyData == (Keys.Control | Keys.Z))
+            {
+                caretaker.Undo();
+                return true;
+            }
+
             return base.ProcessCmdKey(ref msg, keyData);
         }
     }
