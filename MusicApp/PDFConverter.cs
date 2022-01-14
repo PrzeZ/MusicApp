@@ -7,11 +7,10 @@ using System.Windows.Forms;
 
 namespace MusicApp
 {
-    internal class PDFConverter
+    internal class PDFConverter : IPDFConverter
     {
-        internal async Task ConvertToPDFAsync(Bitmap bitmap)
+        public async Task ConvertToPDFAsync(Bitmap bitmap, string path)
         {
-            FileOpener fileOpener = new FileOpener();
 
             try
             {            
@@ -24,13 +23,10 @@ namespace MusicApp
                 XImage image = XImage.FromFile("tmp.bmp");
                 gfx.DrawImage(image, 0, 0, bitmap.Width, bitmap.Height);
 
-                pdf.Save(("test.pdf"));
+                pdf.Save(("musicSheets.pdf"));
                 pdf.Close();
-
-                
-
+              
                 MessageBox.Show("Save success", "Saved to pdf", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
             catch (Exception e)
             {
@@ -38,10 +34,7 @@ namespace MusicApp
                     e.StackTrace, "An exception occured", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            await fileOpener.OpenFileAsync("test.pdf");
             await Task.Delay(1000);
         }
-
-
     }
 }

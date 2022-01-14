@@ -69,7 +69,6 @@
   <ItemGroup>
     <Compile Include="BitmapGenerator.cs" />
     <Compile Include="Caretaker.cs" />
-    <Compile Include="FileOpener.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,9 +83,11 @@
     <Compile Include="IMusicSheet.cs" />
     <Compile Include="IMusicSheetsSystemFacade.cs" />
     <Compile Include="INote.cs" />
+    <Compile Include="IPDFConverter.cs" />
     <Compile Include="MusicSheet.cs" />
     <Compile Include="MusicSheetsSystemFacade.cs" />
     <Compile Include="NotesDictionary.cs" />
+    <Compile Include="OpenFileDecorator.cs" />
     <Compile Include="PDFConverter.cs" />
     <Compile Include="SaveCommand.cs" />
     <Compile Include="Invoker.cs" />

@@ -11,6 +11,7 @@ namespace MusicApp
         PDFConverter pdfConverter;
         Caretaker caretaker;
 
+
         public Form1()
         {
             InitializeComponent();
@@ -35,7 +36,6 @@ namespace MusicApp
 
         private void button3_Click(object sender, EventArgs e)
         {
-
             Invoker invoker = new Invoker();
             invoker.SetOnStart(new SaveCommand(pdfConverter, (Bitmap)pictureBox1.Image));
             invoker.DoCommands();
