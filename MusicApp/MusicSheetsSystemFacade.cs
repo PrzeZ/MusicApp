@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MusicApp
 {
-    internal class MusicSheetsSystemFacade : IMusicSheetsSystemFacade
+    internal class MusicSheetsSystemFacade : IMusicSheetsSystemFacade //FASADA
     {
         private IBitmapGenerator bitmapGenerator = null;
         private List<IMusicSheet> musicSheets = new List<IMusicSheet>();
+
         private int selectedMusicSheetIndex = 0;
-        Bitmap background = null;
+
+        private Bitmap background = null;
 
         public Bitmap Background { get => background; set => background = value; }
 
@@ -67,19 +66,20 @@ namespace MusicApp
         public List<INote> ConvertTextToNote(string text)
         {       
             string[] separators = new string[] { " ", "\n" };
-            INoteFactory wholeNoteFactory = new WholeNoteFactory(); //notes in specified sheet
+            INoteFactory wholeNoteFactory = new WholeNoteFactory();
 
             List<INote> notes = new List<INote>();
             string[] parts = text.Split(separators, StringSplitOptions.None);
             int sheetIndex = 0;
 
+            var notesDictionary = NotesDictionary.GetInstance();
             musicSheets[sheetIndex].ClearNotes(); //SLOW!
             for (int i = (sheetIndex * 48); i < parts.Length; i++)
             {
                 string lastPart = null;
 
                 var value = 0;
-                if (!NotesDictionary.dictionary.TryGetValue(parts[i], out value))
+                if (!notesDictionary.dictionary.TryGetValue(parts[i], out value))
                 {
                     // value not found
                     continue;

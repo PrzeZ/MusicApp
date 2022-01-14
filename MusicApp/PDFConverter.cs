@@ -1,10 +1,7 @@
 ﻿using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,8 +11,10 @@ namespace MusicApp
     {
         internal async Task ConvertToPDFAsync(Bitmap bitmap)
         {
+            FileOpener fileOpener = new FileOpener();
+
             try
-            {
+            {            
                 PdfDocument pdf = new PdfDocument();
                 bitmap.Save("tmp.bmp");
 
@@ -23,17 +22,12 @@ namespace MusicApp
                 XGraphics gfx = XGraphics.FromPdfPage(page);
 
                 XImage image = XImage.FromFile("tmp.bmp");
-                gfx.DrawImage(image, 0, 0, (int)bitmap.Width, (int)bitmap.Height);
+                gfx.DrawImage(image, 0, 0, bitmap.Width, bitmap.Height);
 
                 pdf.Save(("test.pdf"));
                 pdf.Close();
 
-                var p = new System.Diagnostics.Process();
-                p.StartInfo = new System.Diagnostics.ProcessStartInfo("test.pdf")
-                {
-                    UseShellExecute = true
-                };
-                p.Start();
+                
 
                 MessageBox.Show("Save success", "Saved to pdf", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -44,6 +38,7 @@ namespace MusicApp
                     e.StackTrace, "An exception occured", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
+            await fileOpener.OpenFileAsync("test.pdf");
             await Task.Delay(1000);
         }
 

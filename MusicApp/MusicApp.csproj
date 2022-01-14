@@ -68,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitmapGenerator.cs" />
-    <Compile Include="Enums.cs" />
+    <Compile Include="FileOpener.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +78,7 @@
     <Compile Include="HalfNote.cs" />
     <Compile Include="HalfNoteFactory.cs" />
     <Compile Include="IBitmapGenerator.cs" />
+    <Compile Include="ICommand.cs" />
     <Compile Include="IMusicSheet.cs" />
     <Compile Include="IMusicSheetsSystemFacade.cs" />
     <Compile Include="INote.cs" />
@@ -85,6 +86,8 @@
     <Compile Include="MusicSheetsSystemFacade.cs" />
     <Compile Include="NotesDictionary.cs" />
     <Compile Include="PDFConverter.cs" />
+    <Compile Include="SaveCommand.cs" />
+    <Compile Include="Invoker.cs" />
     <Compile Include="WholeNote.cs" />
     <Compile Include="INoteFactory.cs" />
     <Compile Include="Program.cs" />

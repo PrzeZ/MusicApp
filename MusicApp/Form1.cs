@@ -1,23 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MusicApp
 {
     public partial class Form1 : Form
     {
-        static IBitmapGenerator bitmapFactory = new BitmapGenerator();
-        IMusicSheetsSystemFacade musicSheetsSystemFacade = new MusicSheetsSystemFacade(bitmapFactory);
+        IBitmapGenerator bitmapGenerator;
+        IMusicSheetsSystemFacade musicSheetsSystemFacade;
+        PDFConverter pdfConverter;
 
         public Form1()
         {
             InitializeComponent();
+
+            bitmapGenerator = new BitmapGenerator();
+            musicSheetsSystemFacade = new MusicSheetsSystemFacade(bitmapGenerator);
+            pdfConverter = new PDFConverter();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,18 +30,20 @@ namespace MusicApp
             pictureBox1.Image = musicSheetsSystemFacade.UpdateMusicSheet(textBox1.Text);
         }
 
-        private async void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            PDFConverter converter = new PDFConverter();
-            await converter.ConvertToPDFAsync((Bitmap)pictureBox1.Image);
+
+            Invoker invoker = new Invoker();
+            invoker.SetOnStart(new SaveCommand(pdfConverter, (Bitmap)pictureBox1.Image));
+            invoker.DoCommands();
         }
 
-        private void button1_Click(object sender, EventArgs e) //next
+        private void button1_Click(object sender, EventArgs e) //next (TODO)
         {
             musicSheetsSystemFacade.SelectNextMusicSheet();
         }
 
-        private void button2_Click(object sender, EventArgs e) //back
+        private void button2_Click(object sender, EventArgs e) //back (TODO)
         {
             musicSheetsSystemFacade.SelectPreviousMusicSheet();
         }
@@ -51,8 +52,10 @@ namespace MusicApp
         {
             if (keyData == (Keys.Control | Keys.S))
             {
-                MessageBox.Show("Saved");
-                //TODO Save logic
+                Invoker invoker = new Invoker();
+                invoker.SetOnStart(new SaveCommand(pdfConverter, (Bitmap)pictureBox1.Image));
+                invoker.DoCommands();
+
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);

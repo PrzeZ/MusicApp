@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MusicApp
+﻿namespace MusicApp
 {
-    internal class HalfNoteFactory : INoteFactory
+    internal class HalfNoteFactory : INoteFactory //FABRYKA
     {
         public INote CreateNote(float pitch)
         {
