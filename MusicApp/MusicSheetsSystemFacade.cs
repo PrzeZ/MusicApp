@@ -8,8 +8,10 @@ namespace MusicApp
     {
         private IBitmapGenerator bitmapGenerator = null;
         private List<IMusicSheet> musicSheets = new List<IMusicSheet>();
+
         private int selectedMusicSheetIndex = 0;
-        Bitmap background = null;
+
+        private Bitmap background = null;
 
         public Bitmap Background { get => background; set => background = value; }
 
