@@ -4,15 +4,12 @@ namespace MusicApp
 {
     internal class SaveCommand : ICommand //POLECENIE
     {
-        private PDFConverter converter;
-
         private Bitmap bitmap;
 
         private OpenFileDecorator openFileDecorator;
 
         public SaveCommand(PDFConverter converter, Bitmap bitmap)
         {
-            this.converter = converter;
             this.bitmap = bitmap;
             openFileDecorator = new OpenFileDecorator(converter);
         }

@@ -11,7 +11,6 @@ namespace MusicApp
         PDFConverter pdfConverter;
         Caretaker caretaker;
 
-
         public Form1()
         {
             InitializeComponent();
